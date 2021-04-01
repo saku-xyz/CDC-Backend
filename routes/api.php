@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+// use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/citizens','CitizenController@create');
+Route::get('/citizens','CitizenController@getData');
+Route::get('/citizens/{id}','CitizenController@getDataByID');
+Route::put('/citizens/{id}','CitizenController@updateCitizen');
+Route::delete('/citizens/{id}','CitizenController@deleteCitizen');
